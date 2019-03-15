@@ -1,14 +1,10 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
 include('newebpay.php');
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
 
-$merchant_id = getenv("NEWEBPAY_MERCHANT_ID");
-$hash_key = getenv('NEWEBPAY_HASH_KEY');
-$hash_iv = getenv('NEWEBPAY_HASH_IV');
-
-$newebpay = new Newebpay($merchant_id, $hash_key, $hash_iv);
+$newebpay = new Newebpay();
+$tradeInfoArr = $newebpay->getTradeInfoArray();
+$tradeInfo = $newebpay->createMpgAesEncrypt($tradeInfoArr);
+$tradeSha = $newebpay->getTradeSha($tradeInfo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +17,18 @@ $newebpay = new Newebpay($merchant_id, $hash_key, $hash_iv);
   </head>
   <body class="text-center">
     <h2>Newebpay</h2>
-    <form class="w-50" style="margin: auto;" action="<?= $newebpay->getDomain() ?>">
+    <form class="w-50" style="margin: auto;" action="<?= $newebpay->getDomain() ?>" method="post">
       <div class="form-group">
         <label for="merchantID">MerchantID</label>
-        <input type="input" id="merchantID" name="MerchantID" class="form-control" value="<?= $merchant_id ?>" readonly>
+        <input type="input" id="merchantID" name="MerchantID" class="form-control" value="<?= $newebpay->merchant_id ?>" readonly>
       </div>
       <div class="form-group">
         <label for="tradeInfo">TradeInfo</label>
-        <input type="input" id="tradeInfo" name="TradeInfo" class="form-control" value="<?= $hash_key ?>" readonly>
+        <input type="input" id="tradeInfo" name="TradeInfo" class="form-control" value="<?= $tradeInfo ?>" readonly>
       </div>
       <div class="form-group">
         <label for="tradeSha">TradeSha</label>
-        <input type="input" id="tradeSha" name="TradeSha" class="form-control" value="<?= $hash_iv ?>" readonly>
+        <input type="input" id="tradeSha" name="TradeSha" class="form-control" value="<?= $tradeSha ?>" readonly>
       </div>
       <div class="form-group">
         <label for="version">Version</label>
