@@ -1,10 +1,27 @@
 # Newebpay
 
 API Version: 1.5
+
 To create a web page to pay with credit card using [Newebpay](https://www.newebpay.com/) API.
 
 API Documents: 
 [https://www.newebpay.com/info/site_description/api_description](https://www.newebpay.com/info/site_description/api_description) 
+
+## Requirements
+
+* PHP > 5.5
+* Composer
+* Newebpay 1.5
+
+## Usage
+
+Create your own .env file
+
+`$ cp .env.example .env`
+
+Install dependencies
+
+`$ composer install`
 
 #### Attention
 * You must specify the HTTP method POST to be used when submitting the form data.
