@@ -23,6 +23,23 @@ Install dependencies
 
 `$ composer install`
 
+## Troubleshooting
+Have you ever wasted a whole day on the error code which is not helpful?
+
+Some situations list below:
+
+* If you post the form at server side, it returns:
+```
+Code: MPG02005
+Message: 驗證資料錯誤(來源不合法)
+```
+
+* If you forgot to add method="POST" to the form, it returns:
+```
+Code: MPG01010
+Message: 程式版本錯誤
+```
+
 #### Attention
 * You must specify the HTTP method POST to be used when submitting the form data.
 
