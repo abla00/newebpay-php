@@ -23,6 +23,15 @@ Install dependencies
 
 `$ composer install`
 
+## Settings
+
+* `NotifyURL` is triggered after every completion of the transaction.
+* `ReturnURL` the page will be redirected to ReturnURL by **Form Post** after completion.
+
+If you are trying to test if it works or not on localhost.
+
+You will need a public URL, then [ngrok](https://ngrok.com/) is useful.
+
 ## Troubleshooting
 Have you ever wasted a whole day on the error code which is not helpful?
 
