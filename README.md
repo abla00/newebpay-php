@@ -23,6 +23,18 @@ Install dependencies
 
 `$ composer install`
 
+Create your own form like this, there are 4 required parameters:
+
+```
+<form action="<?= $newebpay->getDomain() ?>" method="post">
+    <input type="text" name="MerchantID" value="<?= $newebpay->merchant_id ?>">
+    <input type="text" name="TradeInfo" value="<?= $tradeInfo ?>">
+    <input type="text" name="TradeSha" value="<?= $tradeSha ?>">
+    <input type="text" name="Version" value="1.5">
+    <input type="submit" value="Submit">
+</form>
+```
+
 ## Settings
 
 * `NotifyURL` is triggered after every completion of the transaction.
