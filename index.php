@@ -20,19 +20,19 @@ $tradeSha = $newebpay->getTradeSha($tradeInfo);
     <form class="w-50" style="margin: auto;" action="<?= $newebpay->getDomain() ?>" method="post">
       <div class="form-group">
         <label for="merchantID">MerchantID</label>
-        <input type="input" id="merchantID" name="MerchantID" class="form-control" value="<?= $newebpay->merchant_id ?>" readonly>
+        <input type="text" id="merchantID" name="MerchantID" class="form-control" value="<?= $newebpay->merchant_id ?>" readonly>
       </div>
       <div class="form-group">
         <label for="tradeInfo">TradeInfo</label>
-        <input type="input" id="tradeInfo" name="TradeInfo" class="form-control" value="<?= $tradeInfo ?>" readonly>
+        <input type="text" id="tradeInfo" name="TradeInfo" class="form-control" value="<?= $tradeInfo ?>" readonly>
       </div>
       <div class="form-group">
         <label for="tradeSha">TradeSha</label>
-        <input type="input" id="tradeSha" name="TradeSha" class="form-control" value="<?= $tradeSha ?>" readonly>
+        <input type="text" id="tradeSha" name="TradeSha" class="form-control" value="<?= $tradeSha ?>" readonly>
       </div>
       <div class="form-group">
         <label for="version">Version</label>
-        <input type="input" id="version" name="Version" class="form-control" value="1.5" readonly>
+        <input type="text" id="version" name="Version" class="form-control" value="1.5" readonly>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
