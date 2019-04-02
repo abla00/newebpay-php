@@ -35,6 +35,16 @@ Create your own form like this, there are 4 required parameters:
 </form>
 ```
 
+## Verify Callback
+
+Newebpay makes a form POST to NotifyUrl when transactions are completed.
+
+If you are using csrf verification then you have to skip it.
+
+And you need to verify the callback is from Newebpay by decryption.
+
+Save the transaction data to database if the decryption is success.
+
 ## Settings
 
 * `NotifyURL` is triggered after every completion of the transaction.
