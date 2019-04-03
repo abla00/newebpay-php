@@ -4,8 +4,8 @@ $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
 class Newebpay {
-  const DOMAIN = 'https://core.newebpay.com/MPG/mpg_gateway';
-  const DEV_DOMAIN = 'https://ccore.newebpay.com/MPG/mpg_gateway';
+  const DOMAIN = 'https://core.newebpay.com/MPG';
+  const DEV_DOMAIN = 'https://ccore.newebpay.com/MPG';
     
   public $merchant_id;
   protected $hash_key;
@@ -78,10 +78,32 @@ class Newebpay {
     $slastc = chr($slast);
     if (preg_match("/$slastc{" . $slast . "}/", $string)) {
       $string = substr($string, 0, strlen($string) - $slast);
-            return $string;
+      return $string;
     }
     else {
       return false;
     }
+  }
+  
+  public function getPeriodData()
+  {
+    $today = getdate();
+    $time = time();
+
+    return [
+      'RespondType' => 'JSON',
+      'TimeStamp' => $time,
+      'Version' => '1.0',
+      'MerOrderNo' => $time,
+      'ProdDesc' => 'My Description',
+      'PeriodAmt' => 500,
+      'PeriodType' => 'M',
+      'PeriodPoint' => str_pad($today['mday'], 2, '0', STR_PAD_LEFT),
+      'PeriodStartType' => 2,
+      'PeriodTimes' => 36,
+      'PayerEmail' => 'user@example.com',
+      // 'NotifyURL' => '', // callback
+      // 'ReturnURL' => '',
+    ];
   }
 }
