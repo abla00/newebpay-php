@@ -23,10 +23,10 @@ Install dependencies
 
 `$ composer install`
 
-Create your own form like this, there are 4 required parameters:
+Create a mpg form, you need 4 required parameters:
 
 ```
-<form action="<?= $newebpay->getDomain() ?>" method="post">
+<form action="<?= $newebpay->getDomain() ?>/mpg_gateway" method="post">
     <input type="text" name="MerchantID" value="<?= $newebpay->merchant_id ?>">
     <input type="text" name="TradeInfo" value="<?= $tradeInfo ?>">
     <input type="text" name="TradeSha" value="<?= $tradeSha ?>">
@@ -34,6 +34,18 @@ Create your own form like this, there are 4 required parameters:
     <input type="submit" value="Submit">
 </form>
 ```
+
+Create a periodical form:
+
+```
+<form action="<?= $newebpay->getDomain() ?>/period" method="post">
+    <input type="text" name="MerchantID_" value="<?= $newebpay->merchant_id ?>">
+    <input type="text" name="PostData_" value="<?= $postData ?>">    
+    <input type="submit" value="Submit">
+</form>
+```
+
+* Please notice that the input names end with a underline(_)
 
 ## Verify Callback
 
